@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi8l0fr5vsjd3"]
+
+[ext_resource type="PackedScene" uid="uid://cbhjdugaoyq4f" path="res://button.tscn" id="1_q4den"]
+[ext_resource type="Script" path="res://main.cs" id="1_vdbs8"]
+[ext_resource type="Texture2D" uid="uid://dhy3ct4wa3q43" path="res://green.png" id="3_djls6"]
+[ext_resource type="AudioStream" uid="uid://41rtmw72l0em" path="res://sounds/a.wav" id="4_hrp6i"]
+[ext_resource type="Texture2D" uid="uid://ckm4p0hjp0r5j" path="res://monster.png" id="5_naeui"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_vdbs8")
+
+[node name="C" parent="." instance=ExtResource("1_q4den")]
+offset_top = 500.0
+offset_right = 150.0
+offset_bottom = 650.0
+
+[node name="D" parent="." instance=ExtResource("1_q4den")]
+offset_left = 150.0
+offset_top = 500.0
+offset_bottom = 650.0
+text = "D"
+
+[node name="E" parent="." instance=ExtResource("1_q4den")]
+offset_left = 300.0
+offset_top = 500.0
+offset_right = 450.0
+offset_bottom = 650.0
+text = "E"
+
+[node name="F" parent="." instance=ExtResource("1_q4den")]
+offset_left = 450.0
+offset_top = 500.0
+offset_right = 600.0
+offset_bottom = 650.0
+text = "F"
+
+[node name="G" parent="." instance=ExtResource("1_q4den")]
+offset_left = 600.0
+offset_top = 500.0
+offset_right = 750.0
+offset_bottom = 650.0
+text = "G"
+
+[node name="A" parent="." instance=ExtResource("1_q4den")]
+offset_left = 750.0
+offset_top = 500.0
+offset_right = 900.0
+offset_bottom = 650.0
+text = "A"
+
+[node name="Timer" type="TextureProgressBar" parent="."]
+offset_left = 240.0
+offset_top = 384.0
+offset_right = 740.0
+offset_bottom = 484.0
+value = 100.0
+texture_progress = ExtResource("3_djls6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hrp6i")
+
+[node name="Monster" type="Sprite2D" parent="."]
+position = Vector2(464, 120)
+scale = Vector2(0.6, 0.4)
+texture = ExtResource("5_naeui")
+
+[node name="InputLabel" type="Label" parent="."]
+offset_left = 232.0
+offset_top = 272.0
+offset_right = 424.0
+offset_bottom = 344.0
+
+[node name="SpellList" type="Label" parent="."]
+offset_left = 904.0
+offset_top = 24.0
+offset_right = 1144.0
+offset_bottom = 584.0
+
+[node name="Feedback" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 272.0
+offset_right = 744.0
+offset_bottom = 344.0
