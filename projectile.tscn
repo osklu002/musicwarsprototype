@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://daqrd3eb4i3e5"]
+
+[ext_resource type="Texture2D" uid="uid://dbisuo0pjmfc0" path="res://fireball.png" id="1_72qkx"]
+[ext_resource type="Script" path="res://projectile.cs" id="1_qmbkk"]
+
+[node name="Projectile" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_qmbkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_72qkx")

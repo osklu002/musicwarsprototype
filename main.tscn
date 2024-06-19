@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi8l0fr5vsjd3"]
+[gd_scene load_steps=7 format=3 uid="uid://bi8l0fr5vsjd3"]
 
 [ext_resource type="PackedScene" uid="uid://cbhjdugaoyq4f" path="res://button.tscn" id="1_q4den"]
 [ext_resource type="Script" path="res://main.cs" id="1_vdbs8"]
 [ext_resource type="Texture2D" uid="uid://dhy3ct4wa3q43" path="res://green.png" id="3_djls6"]
 [ext_resource type="AudioStream" uid="uid://41rtmw72l0em" path="res://sounds/a.wav" id="4_hrp6i"]
 [ext_resource type="Texture2D" uid="uid://ckm4p0hjp0r5j" path="res://monster.png" id="5_naeui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juro7"]
+size = Vector2(426.667, 511.414)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vdbs8")
@@ -56,13 +59,28 @@ offset_bottom = 484.0
 value = 100.0
 texture_progress = ExtResource("3_djls6")
 
+[node name="MonsterHealth" type="TextureProgressBar" parent="."]
+offset_left = 272.0
+offset_top = -80.0
+offset_right = 772.0
+offset_bottom = 20.0
+value = 100.0
+texture_progress = ExtResource("3_djls6")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hrp6i")
 
-[node name="Monster" type="Sprite2D" parent="."]
-position = Vector2(464, 120)
-scale = Vector2(0.6, 0.4)
+[node name="Monster" type="Area2D" parent="."]
+position = Vector2(512, 120)
+scale = Vector2(0.6, 0.344144)
+
+[node name="Sprite2D" type="Sprite2D" parent="Monster"]
 texture = ExtResource("5_naeui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster"]
+position = Vector2(-6.10352e-05, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_juro7")
 
 [node name="InputLabel" type="Label" parent="."]
 offset_left = 232.0

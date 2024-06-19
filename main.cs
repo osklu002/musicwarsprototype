@@ -14,6 +14,7 @@ public partial class main : Node2D
     AudioStreamPlayer audioStreamPlayer;
     AudioStream aSound, dSound, cSound, gSound, fSound, eSound;
     Label inputLabel, feedback, spellList;
+    private PackedScene projectile;
 
     List<(string, string)> spells = new List<(string, string)>() {
         ("Three Blind Mice", "EDCEDC"),
@@ -21,6 +22,8 @@ public partial class main : Node2D
     };
 	public override void _Ready()
     {
+        projectile = (PackedScene)ResourceLoader.Load("res://projectile.tscn");
+
         audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         aSound = GD.Load<AudioStream>("res://sounds/a.wav");
         dSound = GD.Load<AudioStream>("res://sounds/d.wav");
@@ -105,8 +108,17 @@ public partial class main : Node2D
         if (spell != default) {
             GD.Print($"{spell.Item1} was a valid spell!");
             feedback.Text = spell.Item1;
+            CreateProjectile();
         } else {
             feedback.Text = "Unknown spell";
         }
+    }
+
+    private void CreateProjectile() {
+        var newProjectile = projectile.Instantiate();
+        if (newProjectile is Node2D temp) {
+            temp.Position = new Vector2(500,300);
+        }
+        AddChild(newProjectile);
     }
 }
